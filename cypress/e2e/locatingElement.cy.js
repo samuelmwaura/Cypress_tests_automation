@@ -1,3 +1,5 @@
+/// references
+
 describe('Show elements locator', ()=>{
     it('First Test case',()=>{
         cy.visit('https://rahulshettyacademy.com/seleniumPractise/#/') // Visit URL
@@ -15,14 +17,15 @@ describe('Show elements locator', ()=>{
         //The specific selector that goes straight to the exact item by searching the whole page has an issue of no scalability since it is a hard coded property in that should the way to get to the item change later, the code breaks
 
         //VALIDATING FOR TEXT TO INCREASE SCALABILITY
-        cy.get('.products').find('.products').each((element, index,list)=>{
-            if(element.contains('cashews') === true){
+        cy.get('.products').find('.product').each((element, index,list)=>{
                 const vegName = element.find('h4.product-name').text()
                if(vegName.includes('Cashews')){
-                 element.find('button').click()
-               }                
+                cy.wrap(element).find('button').click()                              
             }
         })
     })
 
 })  
+
+//Each iterates through an array like structure with a length property using a callback function.
+//When you replace the cy with an element, the control narrows down to the specific element.
