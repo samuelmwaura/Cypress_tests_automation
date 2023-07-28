@@ -1,4 +1,3 @@
-/// references
 
 describe('Show elements locator', ()=>{
     it('First Test case',()=>{
