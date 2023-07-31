@@ -5,16 +5,20 @@ describe('Combines locators and async and sync', function(){
     it('asserts by optimizing Search',()=>{
         cy.visit('https://rahulshettyacademy.com/seleniumPractise/#/')
 
-        cy.get('.products').find('.product').as('products')
-
-        cy.get('@products').each((element,index,arrayList)=>{
+       cy.get('.products').find('.product').as('productsWeHave') //We aliased the whole results as a variable.
+        cy.get('@productsWeHave').each((element,index,arrayList)=>{
            const productName = element.find('h4.product-name').text()
-           if(productName.includes('Pumpkin')){
-            element.get('button').should('have-text','ADD TO CART')
+           if(productName.includes('Brocolli')){
+            cy.wrap(element).find('button').click()  // We have to wrap the element since it is a promise and thus has to be resolves first before applying any other cypress method on it.
            }
-        
+               
         })
-    })
 
+        //     //Assert
+        // cy.get('.brand greenLogo').then((element)=>{
+        //     cy.log(element.text())
+        // })
+    
+        })
 })
 
