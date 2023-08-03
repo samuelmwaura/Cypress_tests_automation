@@ -6,5 +6,6 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
+    chromeWebSecurity: false  // It solves the cross Origin error that prevents cypress from access other domain sites
   },
 });
