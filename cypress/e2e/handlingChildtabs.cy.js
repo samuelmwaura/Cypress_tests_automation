@@ -1,0 +1,17 @@
+/// <reference types = 'cypress'/>
+
+describe('Handle Child Tabs',()=>{
+    it("Handle Child Tabs",()=>{
+      //child tab
+      cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
+      cy.get('#opentab').invoke('removeAttr','target').click()
+
+      //Browser controls
+      
+    })
+})
+
+//If the webpage opens a child window, make it open in the current for proper handling-Delete the target attribute.This is possible since cypress can manipulate the dom.
+//Invoke command helps us invoke jquery functions 
+//You remove the attribute and then click and it will behave like an element without the attribute.
+//To go back to the initial page, you click the back button in cypress
