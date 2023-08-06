@@ -1,4 +1,4 @@
-/// <reference types = 'cypress'/>
+/// <reference types = "cypress"/>
 
 describe('Handle Child Tabs',()=>{
     it("Handle Child Tabs",()=>{
@@ -6,11 +6,11 @@ describe('Handle Child Tabs',()=>{
       cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
       cy.log(cy.url())
       cy.get('#opentab').invoke('removeAttr','target').click()
-      cy.log(cy.url())    
+      cy.url().should('include','click')
 
       //Browser controls
       cy.go('back')
-      cy.url().should('include','rahulshettyacadefefwe  my.com') 
+      cy.url().should('include','rahulshettyacademy.com') 
       
 
 
