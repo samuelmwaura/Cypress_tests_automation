@@ -3,11 +3,11 @@
 describe('Handles Tables',()=>{
     it('Handles Tables',()=>{
         cy.visit('https://rahulshettyacademy.com/AutomationPractice/')
-        cy.get('fieldset > #product tr td:nth-child(2)').as('courseColumns')
-        cy.get('@courseColumns').each((row,indexOfRow,listOfRows)=>{
+        cy.get('fieldset > #product tr td:nth-child(2)').as('courseColumn')
+        cy.get('@courseColumn').each((row,indexOfRow,listOfRows)=>{
             const rowText = row.text()
             if(rowText.includes('Python Language')){
-               cy.get('@courseColumns').eq(indexOfRow).next().then((priceCell)=>{              
+               cy.get('@courseColumn').eq(indexOfRow).next().then((priceCell)=>{              
                 expect(priceCell.text()).to.equal('25') //Assert price is equal to 25
                })
             }
