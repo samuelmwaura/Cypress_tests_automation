@@ -1,7 +1,7 @@
 ///<reference types ='cypress' />
 describe('Test Hooks',()=>{
     before(()=>{
-
+      cy.fixture()
     })
 
    it('Tests Hooks',()=>{
@@ -14,5 +14,6 @@ describe('Test Hooks',()=>{
 
 //Help set conditions that you want to run before or after your tests scripts.
 // Hooks are from Mocha test framework. They include before, after, aftereach,beforeeach. e.g. after all the tests run, delete the cache or or delete the test data that you created.
+//cy.fixture helps ypu communicate with the files stored in thf ficture folder.
 
 //One decribe may have mulitiple it blocks.
