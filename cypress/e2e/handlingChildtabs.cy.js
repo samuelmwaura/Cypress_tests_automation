@@ -12,9 +12,6 @@ describe('Handle Child Tabs',()=>{
       cy.go('back')
       cy.url().should('include','rahulshettyacademy.com') 
       
-
-
-
     })
 })
 
