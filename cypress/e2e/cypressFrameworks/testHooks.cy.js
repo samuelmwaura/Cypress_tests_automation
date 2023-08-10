@@ -1,13 +1,15 @@
 ///<reference types ='cypress' />
 describe('Test Hooks',()=>{
-    before(()=>{
-      cy.fixture()
+    before(function(){
+      cy.fixture('example').then(function(testData){
+        this.testData = testData
+      })
     })
 
-   it('Tests Hooks',()=>{
+   it('Tests Hooks', function(){
     cy.visit('https://rahulshettyacademy.com/angularpractice/')
-    cy.get('input[name="name"]:nth-child(2)').type('Sam')
-    cy.get('select').select('Male')
+    cy.get('div.form-group:nth-child(1) input.form-control[name="name"').type(this.testData.name)
+    cy.get('select').select(this.testData.gender)
   
    })     
 })
